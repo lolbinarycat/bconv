@@ -1,0 +1,55 @@
+.TH BCONV 1
+.SH NAME
+bconv \- convert between numbers of various bases
+.SH SYNOPSIS
+.B bconv
+[
+.B -u
+]
+[
+.B -o
+.I obase
+]
+[
+.B -i
+.I ibase
+]
+[
+.B --
+]
+[
+.I number ...
+]
+.SH DESCRIPTION
+.B Bconv
+reads each
+.I number
+in 
+.I ibase
+and writes it on the standard output in
+.I obase
+followed by a newline.
+
+Numbers may contain underscores, which are ignored.
+
+Any number can have one of the prefixes 0x (heXidecimal), 0o (Octal), 0b (Binary),
+ or 0d (Decimal), which will cause the number to be interpreted as the corrosponding base instead.
+
+The flag
+.B -u
+causes bconv to use uppercase for digits above 9.
+
+The maximum base supported is 16, due to many bases past that not having a standardized digit set.
+
+.SH SOURCE
+.SH BUGS
+
+Overflow is not detected.
+
+Negative numbers are treated like flags if they are not preceaded by 
+.L --
+or another number.
+
+Cannot handle decimals
+
+Unary doesn't work.
